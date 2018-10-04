@@ -11,5 +11,9 @@ class ProductsController < RankingController
 
   def search
     @products = Product.where('title LIKE(?)', "%#{params[:keyword]}%")
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 end
